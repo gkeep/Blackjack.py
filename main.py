@@ -82,7 +82,7 @@ def main():
         print("Player: {} ({})".format(player_hand, total(player_hand)))
 
         if total(dealer_hand) <= 21:
-            if total(player_hand) < 18 < total(dealer_hand) and len(player_hand) >= 4:
+            if total(player_hand) < 19 < total(dealer_hand) and len(dealer_hand) <= 4:
                 continue
             dealer_hand += add_cards(deck, 1)
 
