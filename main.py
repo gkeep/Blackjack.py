@@ -2,8 +2,6 @@
 import os
 import random
 
-deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * 4
-
 def add_cards(deck, amount):
     hand = []
     for i in range(amount):
@@ -67,9 +65,11 @@ def restart():
     if inp == "y":
         main()
     elif inp == "n":
-        exit()
+        os._exit(0)
 
 def main():
+    deck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] * 4
+
     player_hand = add_cards(deck, 2)
     dealer_hand = add_cards(deck, 2)
 
@@ -88,7 +88,6 @@ def main():
             if total(player_hand) < 19 < total(dealer_hand) and len(dealer_hand) <= 4:
                 continue
             dealer_hand += add_cards(deck, 1)
-
 
         inp = input("\n(h)it, (s)tand or (q)uit: ").lower()
         if inp == "h":
