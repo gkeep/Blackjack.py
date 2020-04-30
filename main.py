@@ -34,10 +34,10 @@ def total(hand):
     return points
 
 def the_end(player, dealer):
-    if total(dealer) > 21 and total(player) <= 21:
+    if total(dealer) >= 21 < total(player):
         print("\nDealer overshot ({} points)! Player won.".format(total(dealer)))
         return True
-    elif total(player) > 21 and total(dealer) <= 21:
+    elif total(dealer) <= 21 < total(player):
         print("\nPlayer overshot ({} points)! Dealer won.".format(total(player)))
         return True
     elif total(player) == 21:
@@ -46,7 +46,7 @@ def the_end(player, dealer):
     elif total(dealer) == 21:
         print("\nDealer got a blackjack!")
         return True
-    elif total(dealer) > 21 and total(player) > 21:
+    elif total(player) > 21 > total(dealer):
         print("\nDraw! Both overshot!")
         return True
     elif len(player) >= 5 or len(dealer) >= 5:
