@@ -36,29 +36,29 @@ def total(hand):
 def the_end(player, dealer):
     if total(dealer) >= 21 < total(player):
         print("\nDealer overshot ({} points)! Player won.".format(total(dealer)))
-        return True
+        restart()
     elif total(dealer) <= 21 < total(player):
         print("\nPlayer overshot ({} points)! Dealer won.".format(total(player)))
-        return True
+        restart()
     elif total(player) == 21:
         print("\nPlayer got a blackjack!")
-        return True
+        restart()
     elif total(dealer) == 21:
         print("\nDealer got a blackjack!")
-        return True
+        restart()
     elif total(player) > 21 > total(dealer):
         print("\nDraw! Both overshot!")
-        return True
+        restart()
     elif len(player) >= 5 or len(dealer) >= 5:
         if total(dealer) > total(player) and total(dealer) <= 21:
             print("\nDealer won!")
-            return True
+            restart()
         elif total(player) > total(dealer) and total(player) <= 21:
             print("\nPlayer won!")
-            return True
+            restart()
         else:
             print("\nDraw! Both overshot!")
-            return True
+            restart()
 
 def restart():
     inp = input("Play again? [Y]es or [n]o: ").lower()
@@ -78,8 +78,7 @@ def main():
     while True:
         os.system('clear')
 
-        if the_end(player_hand, dealer_hand):
-            restart()
+        the_end(player_hand, dealer_hand)
 
         print("\nDealer: {} ({})".format(dealer_hand, total(dealer_hand)))
         print("Player: {} ({})".format(player_hand, total(player_hand)))
